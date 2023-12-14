@@ -1,5 +1,6 @@
 import React from "react";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -34,6 +35,7 @@ function App() {
         <Route path="/history" element={<History />}></Route>
         <Route path="/clients" element={<Clients />}></Route>
       </Routes>
+      <ToastContainer />
     </>
   );
 }
