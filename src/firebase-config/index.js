@@ -23,7 +23,7 @@ const firebaseConfig = {
   messagingSenderId: VITE_MES_SENDING_ID,
   appId: VITE_APP_ID,
 };
-console.log(firebaseConfig);
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);

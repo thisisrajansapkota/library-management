@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import BaseLayout from "../../components/layouts/BaseLayout";
 import { Button, Form } from "react-bootstrap";
 import CustomInput from "../../components/customInput/CustomInput";
+import { Link } from "react-router-dom";
+import { sendPasswordResetEmail } from "firebase/auth";
+import { auth } from "../../firebase-config";
+import { toast } from "react-toastify";
 
 function ResetPassword() {
   const inputs = [
@@ -27,9 +31,14 @@ function ResetPassword() {
   const handleOnSubmit = (e) => {
     e.preventDefault(); //it will stop page from refreshing
     console.log(formData);
-    // Validate the input
-    // TODO: Do what you need to do with this obj
-    // Firebase , DB Save, ....
+    const { email } = formData;
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        toast.success("If you have an account with us, check your email");
+      })
+      .catch((error) => {
+        toast.error(`Something went wrong ${error.message}`);
+      });
   };
   return (
     <>
@@ -38,7 +47,6 @@ function ResetPassword() {
         {/* children prop is pre-defined by react */}
         <div className="p-3 border shadow rounded admin-form">
           <h1>Reset Password</h1>
-
           <Form onSubmit={handleOnSubmit}>
             {inputs.map((input) => {
               return (
@@ -51,9 +59,10 @@ function ResetPassword() {
             })}
 
             <Button variant="primary" type="submit">
-              Submit
+              Reset
             </Button>
           </Form>
+          Want to login? <Link to="/login">Login</Link>
         </div>
       </BaseLayout>
     </>

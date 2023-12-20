@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import AdminLayout from "../../components/layouts/AdminLayout";
 
 function History() {
-  return (
-    <div>History</div>
-  )
+  return <AdminLayout title="History">body</AdminLayout>;
 }
 
-export default History
+export default History;
