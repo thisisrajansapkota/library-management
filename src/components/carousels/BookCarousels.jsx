@@ -1,8 +1,8 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
-import img1 from "../../assets/imgs/img1.jpg";
-import img2 from "../../assets/imgs/img2.jpg";
-import img3 from "../../assets/imgs/img3.jpg";
+import img1 from "../../assets/img1.jpg";
+import img2 from "../../assets/img2.jpg";
+import img3 from "../../assets/img3.jpg";
 import "./carousels.css";
 function BookCarousels() {
   return (

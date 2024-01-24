@@ -8,9 +8,7 @@ import "./App.css";
 
 import { Route, Routes } from "react-router-dom";
 import ResetPassword from "./pages/auth/ResetPassword";
-// import AdminSignUp from "./pages/auth/AdminSignUp";
 import AdminSignUp from "./pages/auth/AdminSignUp";
-
 import Dashboard from "./pages/dashboard/Dashboard";
 import Books from "./pages/books/Books";
 import AddBook from "./pages/books/AddBook";
@@ -19,15 +17,20 @@ import History from "./pages/history/History";
 import Clients from "./pages/clients/Clients";
 import Login from "./pages/auth/Login";
 import PrivateRoute from "./components/privateRoute/PrivateRoute";
-import Homepage from "./pages/homepage/Homepage";
+import Home from "./pages/home/Home";
+import BookLanding from "./pages/books/BookLanding";
+import SignUp from "./pages/auth/SignUp";
+import { ADMIN_ONLY } from "./utils";
 
 function App() {
   return (
     <>
       <Routes>
         {/* We will later update this (/) route to display homepage */}
-        <Route path="/" element={<Homepage />}></Route>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/books/:id" element={<BookLanding />}></Route>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/sign-up" element={<SignUp />}></Route>
         <Route path="/reset-password" element={<ResetPassword />}></Route>
         <Route
           path="/admin-signup"
@@ -76,7 +79,7 @@ function App() {
         <Route
           path="/history"
           element={
-            <PrivateRoute>
+            <PrivateRoute clientAccess={true}>
               <History />
             </PrivateRoute>
           }

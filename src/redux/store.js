@@ -3,6 +3,7 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
 import authReducer from "./auth/authSlice";
 import bookReducer from "./book/bookSlice";
+import borrowReducer from "./borrowHistory/borrowHistorySlice";
 
 const persistConfig = {
   key: "root",
@@ -15,5 +16,6 @@ export const store = configureStore({
   reducer: {
     auth: persistedReducer,
     book: bookReducer,
+    borrow: borrowReducer,
   },
 });

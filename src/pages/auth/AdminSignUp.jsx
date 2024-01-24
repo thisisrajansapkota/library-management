@@ -7,6 +7,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../../firebase-config";
 import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import AdminLayout from "../../components/layouts/AdminLayout";
 
 function AdminSignUp() {
   const inputs = [
@@ -104,7 +105,7 @@ function AdminSignUp() {
   };
   return (
     <>
-      <BaseLayout>
+      <AdminLayout>
         {/* Anything inside BaseLayout will become a children */}
         {/* children prop is pre-defined by react */}
         <div className="p-3 border shadow rounded admin-form">
@@ -126,7 +127,7 @@ function AdminSignUp() {
             </Button>
           </Form>
         </div>
-      </BaseLayout>
+      </AdminLayout>
     </>
   );
 }

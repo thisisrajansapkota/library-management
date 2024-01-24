@@ -1,17 +1,17 @@
-import React from 'react'
-import Header from './Header'
-import Footer from './Footer'
+import React from "react";
+import Header from "./Header";
+import Footer from "./Footer";
 
-function BaseLayout({children}) {
+function BaseLayout({ children }) {
   return (
     <>
       <Header />
-<main className='main'>
-    {children}
-</main>
+
+      <main className="main">{children}</main>
+
       <Footer />
     </>
   );
 }
 
-export default BaseLayout
+export default BaseLayout;
